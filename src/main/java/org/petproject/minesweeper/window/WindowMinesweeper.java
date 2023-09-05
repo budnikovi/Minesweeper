@@ -1,24 +1,26 @@
 package org.petproject.minesweeper.window;
 
-import javax.swing.*;
-import java.awt.*;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class WindowMinesweeper extends JFrame {
 
-    public WindowMinesweeper() {
+@Component
+public class WindowMinesweeper  {
+    @Autowired
+    FrameMinesweeper frame;
+    @Autowired
+    PanelMinesweeper panel;
 
-        setTitle("Minesweeper");
-        setSize(400,200);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
+    @PostConstruct
+    public void initialize() {
+        frame.initWindow();
+        panel.initPanel();
+
+        frame.add(panel);
+
     }
 
 
-
-    public static void main(String[] args) {
-        new WindowMinesweeper();
-    }
 
 }
