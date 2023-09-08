@@ -20,4 +20,8 @@ public enum Box {
     NOBOMB;
 
     public Image image;
+
+    public Box getNumberAroundBomb() {
+        return Box.values()[this.ordinal() + 1];
+    }
 }

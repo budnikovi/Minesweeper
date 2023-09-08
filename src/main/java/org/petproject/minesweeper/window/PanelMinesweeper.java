@@ -10,10 +10,16 @@ import java.awt.*;
 @Component
 public class PanelMinesweeper extends DrawIconMinesweeper {
 
+    @Autowired
+    public PanelMinesweeper(OperateImagesMinesweeper images) {
+        super(images);
+    }
+
     protected void initPanel() {
-        setSize(
+        setPreferredSize(
                 new Dimension(
-                        Constants.COLS * Constants.IMAGE_SIZE,Constants.ROWS * Constants.IMAGE_SIZE));
+                        Constants.getSize().getX() * Constants.IMAGE_SIZE,Constants.getSize().getY() * Constants.IMAGE_SIZE));
+
     }
 
 

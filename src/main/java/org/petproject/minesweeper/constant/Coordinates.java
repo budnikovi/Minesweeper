@@ -17,4 +17,13 @@ public class Coordinates {
     public int getY() {
         return y;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof  Coordinates) {
+            Coordinates cord = (Coordinates) o;
+            return cord.getX() == x && cord.getY() == y;
+        }
+        return false;
+    }
 }

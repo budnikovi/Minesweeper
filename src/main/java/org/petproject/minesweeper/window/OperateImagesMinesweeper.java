@@ -7,8 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class OperateImagesMinesweeper {
 
+    private final ImageMinesweeper imageMS;
     @Autowired
-    ImageMinesweeper imageMS;
+    public OperateImagesMinesweeper(ImageMinesweeper imageMS) {
+        this.imageMS = imageMS;
+    }
 
     public void setImages() {
         for (Box box : Box.values()) {
