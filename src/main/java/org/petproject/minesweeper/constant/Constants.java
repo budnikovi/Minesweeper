@@ -18,7 +18,7 @@ public class Constants {
         allCoordinates = new ArrayList<>();
         for (int y = 0; y < size.getY(); y++) {
             for (int x = 0; x < size.getX(); x++) {
-                allCoordinates.add(new Coordinates(x,y));
+                allCoordinates.add(new Coordinates(x, y));
             }
         }
     }
@@ -32,20 +32,21 @@ public class Constants {
     }
 
     public static boolean inRange(Coordinates cord) {
-        return cord.getX()>=0 && cord.getX() < Constants.size.getX() &&
-                cord.getY()>=0 && cord.getY() < Constants.size.getY();
+        return cord.getX() >= 0 && cord.getX() < Constants.size.getX() &&
+                cord.getY() >= 0 && cord.getY() < Constants.size.getY();
     }
 
     public static Coordinates getRandomCoordinate() {
         return new Coordinates(random.nextInt(size.getX()), random.nextInt(size.getY()));
     }
+
     public static ArrayList<Coordinates> getCoordinatesAroundBomb(Coordinates cord) {
 
         Coordinates aroundCord;
         ArrayList<Coordinates> list = new ArrayList<Coordinates>();
-        for (int x = cord.getX() - 1; x <= cord.getX() + 1 ; x++){
+        for (int x = cord.getX() - 1; x <= cord.getX() + 1; x++) {
             for (int y = cord.getY() - 1; y <= cord.getY() + 1; y++) {
-                if (Constants.inRange(aroundCord = new Coordinates(x,y))) {
+                if (Constants.inRange(aroundCord = new Coordinates(x, y))) {
                     if (!aroundCord.equals(cord)) {
                         list.add(aroundCord);
                     }
@@ -55,9 +56,10 @@ public class Constants {
 
         return list;
     }
+
     public static Integer getTotalBomb() {
         int maxBombs = (Constants.ROWS * Constants.COLS) / 2;
-        if(totalBombs > maxBombs) {
+        if (totalBombs > maxBombs) {
             totalBombs = maxBombs;
         }
         return totalBombs;
