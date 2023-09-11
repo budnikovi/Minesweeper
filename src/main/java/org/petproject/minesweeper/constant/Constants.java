@@ -8,7 +8,7 @@ public class Constants {
     public static final Integer IMAGE_SIZE = 50;
     public static final Integer ROWS = 10, COLS = 10;
 
-    private static Integer totalBombs = 16;
+    private static Integer totalBombs = 163;
     private static Coordinates size;
     private static ArrayList<Coordinates> allCoordinates;
     private static Random random = new Random();

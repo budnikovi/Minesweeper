@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Bomb {
     private Matrix bombMap;
-    private Integer totalBombs;
+    private final Integer totalBombs;
 
     Bomb(int totalBombs) {
         this.totalBombs = totalBombs;

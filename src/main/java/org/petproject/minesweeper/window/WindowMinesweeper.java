@@ -6,11 +6,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class WindowMinesweeper  {
+    private final MouseClick mouseClick;
     private final FrameMinesweeper frame;
     private final PanelMinesweeper panel;
 
     @Autowired
-    public WindowMinesweeper(FrameMinesweeper frame, PanelMinesweeper panel) {
+    public WindowMinesweeper(MouseClick mouseClick, FrameMinesweeper frame, PanelMinesweeper panel) {
+        this.mouseClick = mouseClick;
         this.frame = frame;
         this.panel = panel;}
 
@@ -18,6 +20,8 @@ public class WindowMinesweeper  {
     public void createWindow() {
         frame.initWindow();
         panel.initPanel();
+
+        panel.addMouseListener(mouseClick);
 
         frame.add(panel);
         frame.pack();
