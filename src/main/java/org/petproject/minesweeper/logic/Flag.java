@@ -41,14 +41,6 @@ public class Flag {
         }
     }
 
-    public Matrix getFlagMap() {
-        return flagMap;
-    }
-
-    public Integer getFlagCounter() {
-        return flagCounter;
-    }
-
     public Integer getCountOfClosedBoxes() {
         return countOfClosedBoxes;
     }

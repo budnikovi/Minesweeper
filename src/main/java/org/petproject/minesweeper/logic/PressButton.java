@@ -1,7 +1,6 @@
 package org.petproject.minesweeper.logic;
 
 import org.petproject.minesweeper.constant.Coordinates;
-import org.petproject.minesweeper.constant.GameConstantClass;
 import org.petproject.minesweeper.constant.GameState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,11 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class PressButton {
 
-    private Game game = GameConstantClass.getGame();
+    private final Game game;
     private final Recursion recursion;
 
     @Autowired
-    public PressButton(Recursion recursion) {
+    public PressButton(Game game, Recursion recursion) {
+        this.game = game;
         this.recursion = recursion;
     }
 

@@ -1,12 +1,15 @@
 package org.petproject.minesweeper.constant;
 
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Random;
-
+@Component
 public class Constants {
     public static final Integer IMAGE_SIZE = 50;
-    public static final Integer ROWS = 10, COLS = 10;
+
+    public Integer ROWS = 10, COLS = 10;
 
     private static Integer totalBombs = 16;
     private static Coordinates size;
@@ -57,11 +60,16 @@ public class Constants {
         return list;
     }
 
-    public static Integer getTotalBomb() {
-        int maxBombs = (Constants.ROWS * Constants.COLS) / 2;
+    public static Integer getTotalBomb(Constants constants) {
+        int maxBombs = (constants.ROWS * constants.COLS) / 2;
         if (totalBombs > maxBombs) {
             totalBombs = maxBombs;
         }
         return totalBombs;
+    }
+    public static void setMainParameters(int rows, int cols,int bombs, Constants constants) {
+        constants.ROWS = rows;
+        constants.COLS = cols;
+        Constants.totalBombs = bombs;
     }
 }

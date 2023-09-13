@@ -1,10 +1,8 @@
 package org.petproject.minesweeper.logic;
 
-import org.petproject.minesweeper.constant.GameConstantClass;
 import org.petproject.minesweeper.constant.GameState;
 
 public class State {
-    private Game game = GameConstantClass.getGame();
     private GameState gameState;
 
     public State() {

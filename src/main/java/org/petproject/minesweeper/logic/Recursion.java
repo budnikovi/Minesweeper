@@ -1,12 +1,20 @@
 package org.petproject.minesweeper.logic;
 
 import org.petproject.minesweeper.constant.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Recursion {
 
-    private Game game = GameConstantClass.getGame();
+    private final Game game;
+    private Constants constants;
+
+    @Autowired
+    public Recursion(Game game, Constants constants) {
+        this.game = game;
+        this.constants = constants;
+    }
 
     protected void openBox(Coordinates cord) {
         switch (game.getFlag().getBoxFlag(cord)) {
@@ -66,10 +74,13 @@ public class Recursion {
         if (game.getState().getGameState() == GameState.PLAYING) {
             return false;
         }
-        GameConstantClass.setGame(new Game(Constants.COLS, Constants.ROWS, Constants.getTotalBomb()));
-        GameConstantClass.getGame().setBomb(new Bomb(Constants.getTotalBomb()));
-        GameConstantClass.getGame().setFlag(new Flag());
-        GameConstantClass.getGame().setState(new State());
+        startNewGame(game, constants);
         return true;
+    }
+    public void startNewGame(Game game, Constants constants) {
+        game.setBomb(new Bomb(constants.getTotalBomb(constants)));
+        game.setFlag(new Flag());
+        game.setState(new State());
+        game.start();
     }
 }

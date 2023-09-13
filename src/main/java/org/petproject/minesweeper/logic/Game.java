@@ -1,17 +1,21 @@
 package org.petproject.minesweeper.logic;
 
 import org.petproject.minesweeper.constant.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
-
+@Component
 public class Game {
     private Bomb bomb;
     private Flag flag;
     private State state;
+    private Constants constants;
 
-    public Game(int cols, int rows, int bombs) {
-        Constants.setSize(new Coordinates(cols, rows));
-        bomb = new Bomb(bombs);
+    public Game() {
+        constants = new Constants();
+        Constants.setSize(new Coordinates(constants.COLS,constants.ROWS));
+        bomb = new Bomb(Constants.getTotalBomb(constants));
         flag = new Flag();
         state = new State();
     }

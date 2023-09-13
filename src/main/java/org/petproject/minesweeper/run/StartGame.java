@@ -1,7 +1,6 @@
 package org.petproject.minesweeper.run;
 
 import jakarta.annotation.PostConstruct;
-import org.petproject.minesweeper.constant.GameConstantClass;
 import org.petproject.minesweeper.logic.Game;
 import org.petproject.minesweeper.window.Window;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class StartGame {
     Window windowMinesweeper;
-    private Game game = GameConstantClass.getGame();
+    private final Game game;
 
     @Autowired
-    public StartGame(Window windowMinesweeper) {
+    public StartGame(Window windowMinesweeper, Game game) {
         this.windowMinesweeper = windowMinesweeper;
+        this.game = game;
     }
 
     @PostConstruct
