@@ -20,7 +20,8 @@ class Matrix {
         }
         return matrix[cord.getX()][cord.getY()];
     }
-    void setMatrixCord(Coordinates cord,Box box) {
+
+    void setMatrixCord(Coordinates cord, Box box) {
         if (Constants.inRange(cord)) {
             matrix[cord.getX()][cord.getY()] = box;
         }

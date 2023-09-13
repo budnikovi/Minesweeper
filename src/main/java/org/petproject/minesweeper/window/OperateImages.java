@@ -5,11 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OperateImagesMinesweeper {
+public class OperateImages {
 
-    private final ImageMinesweeper imageMS;
+    private final Image imageMS;
+
     @Autowired
-    public OperateImagesMinesweeper(ImageMinesweeper imageMS) {
+    public OperateImages(Image imageMS) {
         this.imageMS = imageMS;
     }
 

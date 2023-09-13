@@ -10,11 +10,11 @@ import javax.swing.*;
 import java.awt.*;
 
 @Component
-public class DrawIconMinesweeper extends JPanel {
-    private final OperateImagesMinesweeper images;
+public class DrawIcon extends JPanel {
+    private final OperateImages images;
 
     @Autowired
-    public DrawIconMinesweeper(OperateImagesMinesweeper images) {
+    public DrawIcon(OperateImages images) {
         this.images = images;
     }
 
@@ -22,8 +22,8 @@ public class DrawIconMinesweeper extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         images.setImages();
-        for (Coordinates cord: Constants.getAllCoordinates()) {
-            g.drawImage(GameConstantClass.getGame().getBoxGame(cord).image, cord.getX() * Constants.IMAGE_SIZE , cord.getY() * Constants.IMAGE_SIZE,this);
+        for (Coordinates cord : Constants.getAllCoordinates()) {
+            g.drawImage(GameConstantClass.getGame().getBoxGame(cord).image, cord.getX() * Constants.IMAGE_SIZE, cord.getY() * Constants.IMAGE_SIZE, this);
         }
 
     }

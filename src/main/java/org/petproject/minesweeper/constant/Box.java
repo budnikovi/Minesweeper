@@ -24,4 +24,8 @@ public enum Box {
     public Box getNumberAroundBomb() {
         return Box.values()[this.ordinal() + 1];
     }
+
+    public Integer getNumber() {
+        return this.ordinal();
+    }
 }

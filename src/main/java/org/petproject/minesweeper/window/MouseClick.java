@@ -2,6 +2,7 @@ package org.petproject.minesweeper.window;
 
 import org.petproject.minesweeper.constant.Constants;
 import org.petproject.minesweeper.constant.Coordinates;
+import org.petproject.minesweeper.constant.GameConstantClass;
 import org.petproject.minesweeper.logic.PressButton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,12 +14,14 @@ import java.awt.event.MouseEvent;
 public class MouseClick extends MouseAdapter {
 
     private final PressButton pressButton;
-    private final PanelMinesweeper panel;
+    private final Panel panel;
+    private final Label label;
 
     @Autowired
-    public MouseClick(PressButton pressButton, PanelMinesweeper panel) {
+    public MouseClick(PressButton pressButton, Panel panel, Label label) {
         this.pressButton = pressButton;
         this.panel = panel;
+        this.label = label;
     }
 
     @Override
@@ -32,5 +35,8 @@ public class MouseClick extends MouseAdapter {
             pressButton.pressRightButton(cord);
         }
         panel.repaint();
+        label.updateLabel(GameConstantClass.getGame().getState());
+
+
     }
 }

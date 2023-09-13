@@ -4,8 +4,6 @@ import org.petproject.minesweeper.constant.Box;
 import org.petproject.minesweeper.constant.Constants;
 import org.petproject.minesweeper.constant.Coordinates;
 
-import java.util.ArrayList;
-
 public class Bomb {
     private Matrix bombMap;
     private final Integer totalBombs;
@@ -39,10 +37,14 @@ public class Bomb {
     }
 
     private void NumbersAroundBomb(Coordinates cord) {
-        for (Coordinates aroundBomb : Constants.getCoordinatesAroundBomb(cord)) {
+        for (Coordinates aroundBomb : Constants.getCoordinatesAround(cord)) {
             if (Box.BOMB != bombMap.getMatrixCord(aroundBomb)) {
                 bombMap.setMatrixCord(aroundBomb, bombMap.getMatrixCord(aroundBomb).getNumberAroundBomb());
             }
         }
+    }
+
+    public Integer getTotalBombs() {
+        return totalBombs;
     }
 }

@@ -8,10 +8,10 @@ public class Constants {
     public static final Integer IMAGE_SIZE = 50;
     public static final Integer ROWS = 10, COLS = 10;
 
-    private static Integer totalBombs = 163;
+    private static Integer totalBombs = 16;
     private static Coordinates size;
     private static ArrayList<Coordinates> allCoordinates;
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static void setSize(Coordinates _size) {
         size = _size;
@@ -40,7 +40,7 @@ public class Constants {
         return new Coordinates(random.nextInt(size.getX()), random.nextInt(size.getY()));
     }
 
-    public static ArrayList<Coordinates> getCoordinatesAroundBomb(Coordinates cord) {
+    public static ArrayList<Coordinates> getCoordinatesAround(Coordinates cord) {
 
         Coordinates aroundCord;
         ArrayList<Coordinates> list = new ArrayList<Coordinates>();

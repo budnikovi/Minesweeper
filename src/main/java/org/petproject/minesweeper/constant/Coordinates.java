@@ -2,8 +2,8 @@ package org.petproject.minesweeper.constant;
 
 
 public class Coordinates {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Coordinates(int x, int y) {
         this.x = x;
@@ -20,8 +20,7 @@ public class Coordinates {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof  Coordinates) {
-            Coordinates cord = (Coordinates) o;
+        if (o instanceof Coordinates cord) {
             return cord.getX() == x && cord.getY() == y;
         }
         return false;
