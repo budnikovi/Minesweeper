@@ -8,7 +8,7 @@ public class Flag {
 
     private final Matrix flagMap;
     private Integer flagCounter = 0;
-    private Integer countOfClosedBoxes = Constants.getSize().getX() * Constants.getSize().getY();
+    private Integer countOfClosedBoxes = Constants.ROWS * Constants.COLS;
 
     public Flag() {
         flagMap = new Matrix(Box.CLOSED);

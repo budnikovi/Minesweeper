@@ -10,12 +10,10 @@ public class Game {
     private Bomb bomb;
     private Flag flag;
     private State state;
-    private Constants constants;
 
     public Game() {
-        constants = new Constants();
-        Constants.setSize(new Coordinates(constants.COLS,constants.ROWS));
-        bomb = new Bomb(Constants.getTotalBomb(constants));
+        Constants.setSize(new Coordinates(Constants.COLS,Constants.ROWS));
+        bomb = new Bomb(Constants.getTotalBomb());
         flag = new Flag();
         state = new State();
     }

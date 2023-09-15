@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 public class Recursion {
 
     private final Game game;
-    private Constants constants;
 
     @Autowired
-    public Recursion(Game game, Constants constants) {
+    public Recursion(Game game) {
         this.game = game;
-        this.constants = constants;
     }
 
     protected void openBox(Coordinates cord) {
@@ -74,11 +72,11 @@ public class Recursion {
         if (game.getState().getGameState() == GameState.PLAYING) {
             return false;
         }
-        startNewGame(game, constants);
+        startNewGame(game);
         return true;
     }
-    public void startNewGame(Game game, Constants constants) {
-        game.setBomb(new Bomb(constants.getTotalBomb(constants)));
+    public void startNewGame(Game game) {
+        game.setBomb(new Bomb(Constants.getTotalBomb()));
         game.setFlag(new Flag());
         game.setState(new State());
         game.start();

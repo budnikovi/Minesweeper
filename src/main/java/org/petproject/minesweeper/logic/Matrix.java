@@ -8,7 +8,7 @@ class Matrix {
     private final Box[][] matrix;
 
     Matrix(Box defaultBox) {
-        matrix = new Box[Constants.getSize().getX()][Constants.getSize().getY()];
+        matrix = new Box[Constants.COLS][Constants.ROWS];
         for (Coordinates cord : Constants.getAllCoordinates()) {
             matrix[cord.getX()][cord.getY()] = defaultBox;
         }

@@ -9,18 +9,15 @@ import java.awt.*;
 
 @Component
 public class Panel extends DrawIcon {
-
-    private Constants constants;
     @Autowired
     public Panel(OperateImages images, Game game) {
         super(images, game);
     }
 
     protected void initPanel() {
-        constants = new Constants();
         setPreferredSize(
                 new Dimension(
-                        constants.ROWS * Constants.IMAGE_SIZE, constants.COLS * Constants.IMAGE_SIZE));
+                        Constants.ROWS * Constants.IMAGE_SIZE, Constants.COLS * Constants.IMAGE_SIZE));
 
     }
 

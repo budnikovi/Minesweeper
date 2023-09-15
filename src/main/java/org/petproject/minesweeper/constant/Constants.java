@@ -9,7 +9,7 @@ import java.util.Random;
 public class Constants {
     public static final Integer IMAGE_SIZE = 50;
 
-    public Integer ROWS = 10, COLS = 10;
+    public static Integer ROWS = 10, COLS = 10;
 
     private static Integer totalBombs = 16;
     private static Coordinates size;
@@ -35,8 +35,8 @@ public class Constants {
     }
 
     public static boolean inRange(Coordinates cord) {
-        return cord.getX() >= 0 && cord.getX() < Constants.size.getX() &&
-                cord.getY() >= 0 && cord.getY() < Constants.size.getY();
+        return cord.getX() >= 0 && cord.getX() < Constants.getSize().getX() &&
+                cord.getY() >= 0 && cord.getY() < Constants.getSize().getY();
     }
 
     public static Coordinates getRandomCoordinate() {
@@ -60,16 +60,11 @@ public class Constants {
         return list;
     }
 
-    public static Integer getTotalBomb(Constants constants) {
-        int maxBombs = (constants.ROWS * constants.COLS) / 2;
+    public static Integer getTotalBomb() {
+        int maxBombs = (Constants.ROWS * Constants.COLS) / 2;
         if (totalBombs > maxBombs) {
             totalBombs = maxBombs;
         }
         return totalBombs;
-    }
-    public static void setMainParameters(int rows, int cols,int bombs, Constants constants) {
-        constants.ROWS = rows;
-        constants.COLS = cols;
-        Constants.totalBombs = bombs;
     }
 }
